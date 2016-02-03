@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts":{
   	"start":"node server.js",
-  	"postinstall":"open http://localhost:8080/config && node server.js"
+  	"postinstall":"open http://localhost:8080/monitorings && node server.js"
   },
   "dependencies": {
     "bluebird": "^2.9.34",
