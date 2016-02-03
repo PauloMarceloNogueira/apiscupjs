@@ -8,7 +8,45 @@ var get = require('./actions/get')
 
 app.listen(port);
 
+app.use(function(req, res, next) {
+
+  res.header( 'Access-Control-Allow-Origin', 'http://localhost:7788')
+  res.header( 'Access-Control-Allow-Credentials', true)
+  res.header( 'Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+  res.header( 'Access-Control-Allow-Headers', 'Content-Type')
+  next();
+});
+
 if(settings.keys){
+
+	app.get('/modules',function(req,res){
+
+		modules = [
+			{
+				path : 'monitorings',
+				name : 'Monitoramentos'
+			},
+			{
+				path : 'searches',
+				name : 'Buscas',
+				params : [{
+					'name':'Monitoramento',
+					'key' : 'monitoramento'
+				}]
+			},
+			{
+				path: 'mentions',
+				name: 'Itens'
+			},
+
+			{
+				path: "tags",
+				name: "Tags"
+			}
+		]
+
+		res.send(JSON.stringify(modules));
+	})
 
 	app.get('/monitorings/', function(req,res){
 		

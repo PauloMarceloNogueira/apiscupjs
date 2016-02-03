@@ -2,15 +2,16 @@
   "name": "ApiScupJS",
   "version": "0.0.0",
   "description": "Worker Api Scup",
-  "author":"Paulo Marcelo Abbondanza Nogueira",
+  "author": "Paulo Marcelo Abbondanza Nogueira",
   "main": "app.js",
-  "scripts":{
-  	"start":"node server.js",
-  	"postinstall":"open http://localhost:8080/monitorings && node server.js"
+  "scripts": {
+    "start": "nodemon server.js",
+    "postinstall": "open http://localhost:8080/monitorings && node server.js"
   },
   "dependencies": {
     "bluebird": "^2.9.34",
     "express": "~4.10.2",
+    "nodemon": "^1.8.1",
     "request": "^2.69.0"
   }
 }
