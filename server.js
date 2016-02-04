@@ -33,15 +33,6 @@ if(settings.keys){
 					'name':'Monitoramento',
 					'key' : 'monitoramento'
 				}]
-			},
-			{
-				path: 'mentions',
-				name: 'Itens'
-			},
-
-			{
-				path: "tags",
-				name: "Tags"
 			}
 		]
 

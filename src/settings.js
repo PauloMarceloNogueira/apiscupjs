@@ -3,13 +3,12 @@
 	var settings = {};
 
 	settings.keys = {
-		publickey: 'UsFwfgJ8',
-		privatekey: 'wjDUg8Gm'
+		publickey: '', // Insert Your Public Key
+		privatekey: '' // Insert Your Private Key
 	};
 
 	settings.params = {
-		version : '1.1',
-		monitoring : '114612'
+		version : '1.1'
 	};
 
 	settings.domains = {
