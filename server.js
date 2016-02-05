@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
 var settings = require('./src/settings.js');
-var config = require('./src/config');
 var get = require('./actions/get')
 
 
@@ -18,10 +17,24 @@ app.use(function(req, res, next) {
 });
 
 if(settings.keys){
+	
+
+	app.get('/config/:publickey/:privatekey', function(req,res,next){
+		var publickey = req.param('publickey')
+		var privatekey = req.param('privatekey')
+
+		global.publickey = publickey;
+		global.privatekey = privatekey;
+
+		
+	});
 
 	app.get('/modules',function(req,res){
-
 		modules = [
+			{
+				path : 'config',
+				name : 'Configuração'
+			},
 			{
 				path : 'monitorings',
 				name : 'Monitoramentos'

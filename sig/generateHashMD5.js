@@ -1,7 +1,6 @@
 module.exports = {
 
 	generate : function(){
-
 		var timeStamp = require('./generateTimestamp');
 
 		var settings = require('../src/settings');
@@ -9,7 +8,7 @@ module.exports = {
 		md5 = require('js-md5')
 		var hash = md5.create();
 
-		var stringToHash = timeStamp.generate() + settings.keys.privatekey;
+		var stringToHash = timeStamp.generate() + privatekey;
 
 		hash.update(stringToHash);
 

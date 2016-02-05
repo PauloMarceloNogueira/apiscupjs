@@ -4,7 +4,6 @@ module.exports = {
 
 
 	show: function(action, monitoring, params, callback) {
-		
 		var generate = require('../sig/generate');
 		
 		var paramsUrl = "";

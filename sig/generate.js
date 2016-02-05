@@ -10,7 +10,7 @@ module.exports = {
 
 		url = settings.domains.prod + settings.params.version + '/';
 
-		params = '&publickey=' + settings.keys.publickey + '&time=' + hash.generate().time + '&signature='+hash.generate().hash;
+		params = '&publickey=' + publickey + '&time=' + hash.generate().time + '&signature='+hash.generate().hash;
 
 		data = {
 			url : url,

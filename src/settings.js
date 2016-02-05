@@ -1,10 +1,9 @@
 (function(){
 
 	var settings = {};
-
+	
 	settings.keys = {
-		publickey: '', // Insert Your Public Key
-		privatekey: '' // Insert Your Private Key
+		
 	};
 
 	settings.params = {
