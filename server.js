@@ -26,6 +26,13 @@ if(settings.keys){
 		global.publickey = publickey;
 		global.privatekey = privatekey;
 
+		var result = {
+				message : "success",
+				publickey: publickey,
+				privatekey: privatekey
+		}
+		res.send(JSON.stringify(result))
+
 		
 	});
 

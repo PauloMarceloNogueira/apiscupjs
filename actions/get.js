@@ -4,6 +4,7 @@ module.exports = {
 
 
 	show: function(action, monitoring, params, callback) {
+		
 		var generate = require('../sig/generate');
 		
 		var paramsUrl = "";
@@ -32,10 +33,7 @@ module.exports = {
 	 		var data = JSON.parse(body);
 
 	 		if (err){
-				console.log('Error : ' + data.data.cod_error);
-				console.log('\n');
-				console.log('Message :' + data.data.message);
-	 			return callback(data.data.message)
+	 			return callback(data.data)
 	 		}
 			return callback(data.data)
 	 	})
