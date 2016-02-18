@@ -1,7 +1,7 @@
 Server = require('./source/server/server')
 Config = require('./source/server/config')
 Header = require('./source/server/headers')
-Routes = require('./source/server/routes')
+Routes = require('./source/routes/routes')
 
 var config = new Config() 
 var server = new Server(config)

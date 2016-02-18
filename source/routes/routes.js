@@ -1,8 +1,10 @@
 var get = require('./../actions/get')
+var Build = require('./build')
 
 function Route(server){
 	this.server = server
 }
+
 
 Route.prototype.create = function(){
 
@@ -46,39 +48,24 @@ Route.prototype.create = function(){
 			
 		});
 
-	this.server.app.get('/monitorings/', function(req,res){
-			
-			params = {}
-			get.show('monitorings','',params,function(data){
-				res.send(JSON.stringify(data))
-			})
-		})
+	this.server.app.get('/:params', function(req,res){
+		var params = req.param('params')
+		var build = new Build(params)
 
-	this.server.app.get('/searches/:monitoramento', function(req,res){
-		var monitoramento = req.param('monitoramento')
-		var id = req.param('id');
-		params = {
-			second : id
+		var call = build.construct()
+		var monitoring;
+
+		if (call.monitoring){
+			monitoring = call.monitoring
+		}else{
+			monitoring = '' 
 		}
-		get.show('searches',monitoramento,params,function(data){
+
+		get.show(call.action,monitoring,call.params,function(data){
 			res.send(JSON.stringify(data))
 		})
-		
+	})	
 
-	})
-
-	this.server.app.get('/mentions/:monitoramento/:searches', function(req,res){
-		var monitoramento = req.param('monitoramento')
-		var searches = req.param('searches')
-		params = {
-			searches_ids : searches
-		}
-		get.show('mentions',monitoramento, params,function(data){
-			res.send(JSON.stringify(data))
-		})
-		
-
-	})
 }
 
 

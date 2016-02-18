@@ -12,10 +12,16 @@ module.exports = {
 
 		params = '&publickey=' + publickey + '&time=' + hash.generate().time + '&signature='+hash.generate().hash;
 
-		data = {
-			url : url,
-			params : params
-		};
+		if(publickey){
+			data = {
+				url : url,
+				params : params
+			}
+
+		}else{
+			return ""
+		}
+
 
 		return data
 	}
