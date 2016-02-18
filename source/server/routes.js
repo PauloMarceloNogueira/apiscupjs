@@ -1,3 +1,5 @@
+var get = require('./../actions/get')
+
 function Route(server){
 	this.server = server
 }

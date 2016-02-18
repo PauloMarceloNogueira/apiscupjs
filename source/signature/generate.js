@@ -4,7 +4,7 @@ module.exports = {
 
 		var hash = require('./generateHashMD5');
 
-		var settings = require('../settings');
+		var settings = require('../server/settings');
 
 		var url = {};
 
