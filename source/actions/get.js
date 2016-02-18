@@ -5,7 +5,7 @@ module.exports = {
 
 	show: function(action, monitoring, params, callback) {
 		
-		var generate = require('../sig/generate');
+		var generate = require('../signature/generate');
 		
 		var paramsUrl = "";
 		var i = 0;
