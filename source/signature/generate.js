@@ -1,3 +1,5 @@
+var Config = require('../server/config')
+
 module.exports = {
 	
 	generate : function(cb){
@@ -7,14 +9,16 @@ module.exports = {
 		var settings = require('../server/settings');
 
 		var url = {};
-
-		url = settings.domains.prod + settings.params.version + '/';
-
+		var version 
+		var config = new Config()
+		url = config.domain;
+		version = config.version;
 		params = '&publickey=' + publickey + '&time=' + hash.generate().time + '&signature='+hash.generate().hash;
 
 		if(publickey){
 			data = {
 				url : url,
+				version : version,
 				params : params
 			}
 

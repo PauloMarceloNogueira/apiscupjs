@@ -4,12 +4,10 @@ module.exports = {
 
 
 	show: function(action, monitoring, params, callback) {
-		console.log(monitoring)
 		var generate = require('../signature/generate');
-		console.log(params,'NO GET')
-		var url = 'http://' + generate.generate().url + '/'+ action +'/' + monitoring + params+ generate.generate().params;
+		var url = generate.generate().url + '/' + generate.generate().version + '/'+ action +'/' + monitoring + params+ generate.generate().params;
 
-
+		console.log(url)
 	 	request(url,function(err,response,body){
 	 		var data = JSON.parse(body);
 

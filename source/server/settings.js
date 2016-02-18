@@ -8,8 +8,7 @@
 	};
 
 	settings.params = {
-		version : '1.1',
-		monitoring : '114612'
+		
 	};
 
 	settings.domains = {

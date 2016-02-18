@@ -8,6 +8,23 @@ function Route(server){
 
 Route.prototype.create = function(){
 
+	this.server.app.get('/:params', function(req,res){
+		var params = req.param('params')
+		var build = new Build(params)
+
+		var call = build.construct()
+		var monitoring;
+
+		if (call.monitoring){
+			monitoring = call.monitoring
+		}else{
+			monitoring = '' 
+		}
+		get.show(call.action,monitoring,call.params,function(data){
+			res.send(JSON.stringify(data))
+		})
+	})	
+
 	this.server.app.get('/modules',function(req,res){
 		modules = [
 			{
@@ -48,23 +65,7 @@ Route.prototype.create = function(){
 			
 		});
 
-	this.server.app.get('/:params', function(req,res){
-		var params = req.param('params')
-		var build = new Build(params)
-
-		var call = build.construct()
-		var monitoring;
-
-		if (call.monitoring){
-			monitoring = call.monitoring
-		}else{
-			monitoring = '' 
-		}
-
-		get.show(call.action,monitoring,call.params,function(data){
-			res.send(JSON.stringify(data))
-		})
-	})	
+	
 
 }
 
