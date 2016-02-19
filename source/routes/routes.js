@@ -1,5 +1,6 @@
 var get = require('./../actions/get')
 var Build = require('./build')
+var Session = require("./../server/session")
 
 function Route(server){
 	this.server = server
@@ -51,15 +52,15 @@ Route.prototype.create = function(){
 	this.server.app.get('/config/:publickey/:privatekey', function(req,res,next){
 			var publickey = req.param('publickey')
 			var privatekey = req.param('privatekey')
-
-			global.publickey = publickey;
-			global.privatekey = privatekey;
-
+			
 			var result = {
 					message : "success",
 					publickey: publickey,
 					privatekey: privatekey
 			}
+			
+			req.session.set(result);
+			
 			res.send(JSON.stringify(result))
 
 			

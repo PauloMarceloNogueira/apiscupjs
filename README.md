@@ -1,7 +1,6 @@
 # README #
 
 # SCUP API JS #
-
 Middleware para acesso a API do Scup
 
 
